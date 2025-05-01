@@ -112,6 +112,25 @@ public class Sudoku {
                 tile.setFocusable(false);
     
                 boardJPanel.add(tile);
+
+                tile.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e){
+                        Tile tile = (Tile) e.getSource();
+                        int r = tile.r;
+                        int c = tile.c;
+                        if (numSelected != null){
+                            if(tile.getText() != "") return;
+                            String numSelectedText = numSelected.getText();
+                            String tileSolution = String.valueOf(solution[r].charAt(c));
+                            if(tileSolution.equals(numSelectedText)){
+                                tile.setText(numSelectedText);
+                            }else{
+                                errors += 1;
+                                textLabel.setText("Sudoku, Score: " + String.valueOf(errors));
+                            }
+                        }
+                    }
+                });
             }
         }
     }
