@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
 public class Sudoku {
@@ -45,6 +46,9 @@ public class Sudoku {
 
     JPanel boardJPanel = new JPanel();
     JPanel buttonsJPanel = new JPanel();
+
+    JButton numSelected = null;
+    int errors = 0;
 
 
     public Sudoku() {
@@ -119,7 +123,20 @@ public class Sudoku {
             button.setText(String.valueOf(i));
             button.setFocusable(false);
             button.setBackground(Color.WHITE);
+            button.setOpaque(true);
+            button.setContentAreaFilled(true); 
             buttonsJPanel.add(button);
+
+            button.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+                    JButton button = (JButton)e.getSource();
+                    if(numSelected != null){
+                        numSelected.setBackground(Color.white);
+                    }
+                    numSelected = button;
+                    numSelected.setBackground(Color.lightGray);
+                }
+            });
         }
     }
 }
