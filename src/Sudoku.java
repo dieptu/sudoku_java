@@ -61,7 +61,7 @@ public class Sudoku {
 
         textLabel.setFont(new Font("Arial", Font.BOLD, 30));
         textLabel.setHorizontalAlignment(JLabel.CENTER);
-        textLabel.setText("Sudoku, Score: 0");
+        textLabel.setText("Sudoku, Errors: 0");
 
         textPanel.add(textLabel);
         frame.add(textPanel, BorderLayout.NORTH);
@@ -126,7 +126,7 @@ public class Sudoku {
                                 tile.setText(numSelectedText);
                             }else{
                                 errors += 1;
-                                textLabel.setText("Sudoku, Score: " + String.valueOf(errors));
+                                textLabel.setText("Sudoku, Errors: " + String.valueOf(errors));
                             }
                         }
                     }
