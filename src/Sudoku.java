@@ -66,6 +66,10 @@ public class Sudoku {
         boardJPanel.setPreferredSize(new Dimension(600, 600)); // ensure size is not 0
         setupTiles();
         frame.add(boardJPanel, BorderLayout.CENTER);
+
+        buttonsJPanel.setLayout(new GridLayout(1,9));
+        setupButtons();
+        frame.add(buttonsJPanel,BorderLayout.SOUTH);
         frame.pack(); // important: adjust frame size to fit content
         frame.setVisible(true);
     }
@@ -108,5 +112,14 @@ public class Sudoku {
         }
     }
 
-    
+    public void setupButtons(){
+        for (int i = 1; i< 10; i ++){
+            JButton button = new JButton();
+            button.setFont(new Font("Arial", Font.BOLD, 20));
+            button.setText(String.valueOf(i));
+            button.setFocusable(false);
+            button.setBackground(Color.WHITE);
+            buttonsJPanel.add(button);
+        }
+    }
 }
